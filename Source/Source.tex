@@ -1,0 +1,219 @@
+%===============================================================================
+% $Id: ifacconf.tex 19 2011-10-27 09:32:13Z jpuente $  
+% Template for IFAC meeting papers
+% Copyright (c) 2007-2008 International Federation of Automatic Control
+%===============================================================================
+\documentclass{ifacconf}
+
+\usepackage{graphicx}      % include this line if your document contains figures
+\usepackage{natbib}        % required for bibliography
+
+\usepackage{amssymb,mathrsfs, amsmath}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+
+%newcommand
+\newcommand\id[1]{\text{id}_{#1}}
+\newcommand\sr{\text{sr}(D)}
+%===============================================================================
+\begin{document}
+\begin{frontmatter}
+
+\title{A constructive version of Warfield's Theorem} 
+% Title, preferably not more than 10 words.
+
+
+\author[First]{Cyrille Chenavier} 
+\author[Second]{Alban Quadrat} 
+
+
+\address[First]{Inria Lille - Nord Europe,
+  Villeneuve d'Ascq, France (e-mail: cyrille.chenavier@inria.fr).}
+\address[Second]{Inria Paris, Universit\'e Pierre et Marie Curie,  
+   Paris, France (e-mail: alban.quadrat@inria.fr).}
+
+\begin{abstract}                % Abstract of not more than 250 words.
+\end{abstract}
+
+\begin{keyword}
+
+\end{keyword}
+
+\end{frontmatter}
+%===============================================================================
+
+\section{Introduction}
+
+
+\section{Module isomorphisms and equivalent matrices}
+
+In this section, we recall the characterization of morphisms between
+finitely presented left $D$-modules, as well as results of Fitting and
+Warfield which rely isomorphic left $D$-modules to matrix conjugation.
+
+\subsection{Effective version of Fitting's Theorem}
+
+Consider two left $D$-modules $M$ and $M'$ with finite presentations:
+\begin{equation}\label{equ:presentations}
+  \begin{small}
+    \begin{tikzcd}
+      D^{1\times q}\arrow[r, ".R"] &
+      D^{1\times p}\arrow[r, "\pi"] &
+      M\arrow[r] &
+      0, 
+      \\
+        D^{1\times q'}\arrow[r, ".R'"] &
+        D^{1\times p'}\arrow[r, "\pi'"] &
+        M'\arrow[r] &
+        0, 
+    \end{tikzcd}
+  \end{small}
+\end{equation}
+namely, \emph{exact sequences} (see~\cite{Ro:09}), where
+$R\in~ D^{q\times p}$, $(.R)(\mu)=\mu R$, for every $\mu\in D^{1\times q}$
+and $\pi$ is the natural projection on $M=D^{1\times p}/(D^{1\times q}R)$
+(similarly for $R'$ and $\pi'$).
+
+From~\cite{Ro:09}, there exists $f\in\hom_D(M,M')$ if and only if there
+exist matrices $P\in D^{p\times p'}$ and $Q\in D^{q\times q'}$ such that
+$RP=QR'$ and
+\begin{equation}\label{eq:def_of_f}
+  \forall\lambda\in D^{1\times p},\ f(\pi(\lambda))=\pi'(\lambda\pi).
+\end{equation}
+Hence, the following diagram is exact and commutative:
+
+
+\begin{center}
+  \begin{small}
+    \begin{tikzcd}
+      D^{1\times q}\arrow[r, ".R"] \arrow[d, ".Q"'] &
+      D^{1\times p}\arrow[r, "\pi"] \arrow[d, ".P"']&
+      M\arrow[r] \arrow[d, "f"']&
+      0
+      \\
+      D^{1\times q'}\arrow[r, ".R'"] &
+      D^{1\times p'}\arrow[r, "\pi'"] &
+      M'\arrow[r] &
+      0
+    \end{tikzcd}
+  \end{small}
+\end{center}
+
+We let $n:=p+p'$ and $m:=q+p'+p+q'$. The two $m\times n$ matrices
+\begin{equation}\label{equ:def_of_L}
+  \begin{small}
+    L:=\begin{pmatrix}
+    R & 0 \\
+    0 & \id{p'} \\
+    0 & 0 \\
+    0 & 0
+    \end{pmatrix}\ \ \text{and}\ \
+    L':=\begin{pmatrix}
+    0 & 0 \\
+    0 & 0 \\
+    \id{p} & 0 \\
+    0 & R'
+    \end{pmatrix},
+  \end{small}
+\end{equation}
+induce finite presentations:  $M\simeq D^{1\times n}/(D^{1\times m}L)$ 
+and $M'\simeq D^{1\times n}/(D^{1\times m}L')$. In~\cite{ClQu:11}, an
+effective version of a result due to~\cite{Fi:36} is given. If $f$ is an
+isomorphism, then $L$ and $L'$ are equivalent: there exist $6$ matrices
+$R_2\in D^{r\times q}$, $R'_2\in D^{r'\times q'}$,
+$Z_2\in D^{p\times q}$, $Z_2\in D^{q\times r}$,
+$Z'_2\in D^{q'\times r'}$, $Z\in D^{p\times q}$ and
+$Z'\in D^{p'\times q'}$ and two invertible matrices of size $n$ and $m$
+\begin{equation}\label{equ:def_of_XF}
+  \begin{small}
+    X_F:=\begin{pmatrix}
+    \id{p} & P \\
+    -P' & \id{p'}-P'P
+  \end{pmatrix}\ \ \text{and}\ \
+    Y_F:=\begin{pmatrix}
+    \id{q} & 0 & R & Q \\
+    0 & \id{p'} & -P' & Z' \\
+    -Z & P & 0 & PZ'-ZQ \\
+    -Q' & -R' & 0 & Z'_2R'_2
+    \end{pmatrix},
+  \end{small}
+\end{equation}
+with inverses
+\begin{equation}\label{equ:def_of_XF-}
+  \begin{small}
+    X_F^-:=\begin{pmatrix}
+    \id{p}-PP' & -P \\
+    P' & \id{p'}
+  \end{pmatrix}\ \ \text{and}\ \
+    Y_F^-:=\begin{pmatrix}
+    Z_2R_2& 0 & -R & -Q \\
+    P'Z-Z'Q' & 0 & P' & -Z' \\
+    Z & -P & \id{p} & 0 \\
+    Q' & R' & 0 & \id{q'}
+    \end{pmatrix},
+  \end{small}
+\end{equation}
+such that
+\begin{equation}\label{equ:Fitting_equiv}
+  \begin{small}
+    L'=Y_F^-LX_F.
+  \end{small}
+\end{equation}
+
+\subsection{Warfield's Theorem}
+
+A result due to~\cite{Wa:78} asserts that that the size of $0$ an id
+blocs in (\ref{equ:def_of_L}) can be reduced, whereas the new matrices
+are still equivalent. This result is based on the notion of
+\emph{stable rank}. The definition of the latter requires to introduce
+various notions that we present now.
+
+A column vector $u:=(u_1\cdots u_k)^T\in D^{k\times 1}$ is called
+\emph{unimodular} if there exists a line $v\in D^{1\times k}$ such that
+$vu=1$. Moreover, $u$ is said to be \emph{stable} if there exist 
+$d_1,\cdots,d_{k-1}\in D$ such that
+$(u_1+d_1u_k\cdots u_{k-1}+d_{k-1}u_k)$ is unimodular. An integer $r$ is
+said to be in the stable rank of $D$ if whenever $k>r$, every column
+$u\in D^{k\times 1}$ is stable. The stable rank $\sr$ of $D$ is the
+smallest integer in the stable rank of $D$.
+
+Assume that the two matrices (\ref{equ:def_of_L}) are equivalent, then
+Warfield's Theorem asserts that if there exist two integers $r$ and $s$
+such that
+\smallskip
+\begin{equation}\label{equ:s_r}
+  \left\{
+  \begin{split}
+    & s\leq\min(p+q',q+p'),\\
+    & \sr\leq\max(p+q'-s,q+p'-s),\\
+    &s\leq\min(p+q',q+p'), \\
+    & \sr\leq\max(p+q'-s,q+p'-s),
+  \end{split}
+  \right.
+\end{equation}
+then the following $(m-r-s)\times (n-r)$ matrices are equivalent
+\begin{equation}\label{equ:def_of_L_bar}
+  \begin{small}
+    \overline{L}:=\begin{pmatrix}
+    R & 0 \\
+    0 & \id{p'-r} \\
+    0 & 0
+    \end{pmatrix}\ \ \text{and}\ \
+    \overline{L'}:=\begin{pmatrix}
+    0 & 0 \\
+    \id{p-r} & 0 \\
+    0 & R'
+    \end{pmatrix},
+  \end{small}
+\end{equation}
+and induce finite presentations of $M$ and $M'$, respectively.
+
+In the next section, we introduce a procedure which computes invertible
+matrices $X_W$ and $Y_W$ such that
+\begin{equation}\label{equ:Warfield_equiv}
+  \overline{L'}=Y_W^-\overline{L}X_W.
+\end{equation}
+
+\bibliography{Source}
+
+\end{document}

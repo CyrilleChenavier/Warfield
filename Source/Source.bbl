@@ -1,0 +1,35 @@
+\begin{thebibliography}{4}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[{Cluzeau and Quadrat(2011)}]{ClQu:11}
+Cluzeau, T. and Quadrat, A. (2011).
+\newblock {A constructive version of Fitting's theorem on isomorphisms and
+  equivalences of linear systems}.
+\newblock In \emph{{7th International Workshop on Multidimensional Systems
+  (nDs)}}, 1--8. Poitiers, France.
+\newblock \urlprefix\url{https://hal.archives-ouvertes.fr/hal-00682765}.
+
+\bibitem[{Fitting(1936)}]{Fi:36}
+Fitting, H. (1936).
+\newblock \"{U}ber den {Z}usammenhang zwischen dem {B}egriff der
+  {G}leichartigkeit zweier {I}deale und dem \"{A}quivalenzbegriff der
+  {E}lementarteilertheorie.
+\newblock \emph{Math. Ann.}, 112(1), 572--582.
+
+\bibitem[{Rotman(2009)}]{Ro:09}
+Rotman, J.J. (2009).
+\newblock \emph{An introduction to homological algebra}.
+\newblock Universitext. Springer, New York, second edition.
+
+\bibitem[{Warfield(1978)}]{Wa:78}
+Warfield, Jr., R.B. (1978).
+\newblock Stable equivalence of matrices and resolutions.
+\newblock \emph{Comm. Algebra}, 6(17), 1811--1828.
+
+\end{thebibliography}
