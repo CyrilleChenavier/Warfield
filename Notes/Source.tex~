@@ -1,0 +1,576 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb,mathrsfs}
+\pagestyle{plain}
+\usepackage{enumitem} 
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage[all]{xy}
+\usepackage[filecolor=green]{hyperref}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage[toc,page]{appendix}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{tikz}
+\usepackage{multirow}
+
+\newenvironment{changemargin}[2]{\begin{list}{}{%
+      \setlength{\topsep}{0pt}%
+      \setlength{\leftmargin}{0pt}%
+      \setlength{\rightmargin}{0pt}%
+      \setlength{\listparindent}{\parindent}%
+      \setlength{\itemindent}{\parindent}%
+      \setlength{\parsep}{0pt plus 1pt}%
+      \addtolength{\leftmargin}{#1}%
+      \addtolength{\rightmargin}{#2}%
+    }\item }{\end{list}}
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+
+\usepackage[a4paper]{geometry}
+\geometry{hscale=0.75,vscale=0.75,centering}
+\bibliographystyle{plain}
+
+\newcommand\K{\mathbb{K}}
+\newcommand\Sym[1]{\text{Sym}_{#1}V^*}
+\newcommand\Mul[2]{\text{Mul}\left(#1, #2\right)}
+\newcommand\g[1]{\textbf{#1}}
+\newcommand\gth[1]{\emph{\g{#1}}}
+\newcommand\lm[1]{\text{lm}\left(#1\right)}
+\newcommand{\G}{Gr\"obner}
+\newcommand{\Todo}[1]{\textbf{Todo:} (#1).}
+\newcommand\id[1]{\text{I}_{#1}}
+\newcommand\idd[1]{\emph{I}_{#1}}
+\newcommand\unit[1]{1_{#1}}
+\newcommand\Span[1]{\langle #1\rangle}
+\newcommand\sr[1]{\text{sr}\left(#1\right)}
+\newcommand\one{\g{1}}
+\newcommand\zero{\g{0}}
+
+\begin{document}
+
+\section{description of the objects and morphisms}
+
+Let us introduce the following two objects in the category of finite
+presentations of left modules:
+\[
+\g{o}:=\g{D}^{1\times q}\overset{.R}{\longrightarrow}\g{D}^{1\times p}\ \
+\text{and}\ \
+\g{o}':=\g{D}^{1\times q'}\overset{.R'}{\longrightarrow}\g{D}^{1\times
+  p'}.
+\]
+
+From the constructive Fitting's Theorem, there is an isomorphism
+\begin{equation}\label{equ:Fitting_iso}
+  \g{o}\oplus\one^{p'}\oplus\zero^{p+q'}
+  \overset{\sim}{\longrightarrow}
+  \zero^{q+p'}\oplus\one^{p}\oplus\g{o}'.
+\end{equation}
+
+We assume that $p\leq p'$, $r\leq p$ and $r+\sr{\g{D}}\leq p'$. We let
+\[\g{X}:=\g{o}\oplus\zero^{p+q'}\ \ \text{and}\ \
+\g{Y}:=\zero^{q+p'}\oplus\one^{p-1}\oplus\g{o}'.\]
+Explicitly these two objects are:
+\[\g{X}=\g{D}^{1\times (q+p+q')}\overset{.A}{\longrightarrow}
+\g{D}^{1\times p}\ \ \text{and}\ \
+\g{Y}=\g{D}^{1\times (q+p'+(p-1)+q')}\overset{.B}{\longrightarrow}
+\g{D}^{1\times ((p-1)+p')},\]
+where
+\[A:=\begin{pmatrix}
+R \\
+0 \\
+0
+\end{pmatrix}\ \ \text{and}\ \
+B:=\begin{pmatrix}
+0 & 0 & 0 \\
+0 & 0 & 0 \\
+\id{p-1} & 0 & 0 \\
+0 & R' & 0 \\
+0 & 0 & 1
+\end{pmatrix}.\]
+From~\eqref{equ:Fitting_iso}, we have an isomorphism
+\[\sigma:\g{X}\oplus\one^{p'}\simeq\g{Y}
+\oplus\one,\]
+defined by
+
+\begin{center}
+  \begin{changemargin}{-2cm}{0cm}
+    \begin{tikzpicture}
+      \coordinate (Relt) at (-3, 3);
+      \coordinate (Gent) at (3, 3);
+      \coordinate (SRelt) at (-4, 2.8);
+      \coordinate (SGent) at (3.5, 2.8);
+
+      \coordinate (Relp) at (-2.8, 0);
+      \coordinate (Genp) at (3, 0);
+      \coordinate (NRelp) at (-4, 0.2);
+      \coordinate (SRelp) at (-4, -0.2);
+      \coordinate (NGenp) at (3.5, 0.2);
+      \coordinate (SGenp) at (3.5, -0.2);
+
+      \coordinate (Relb) at (-3, -3);
+      \coordinate (Genb) at (3, -3);
+      \coordinate (NRelb) at (-4, -2.8);
+      \coordinate (NGenb) at (3.5, -2.8);
+
+      \coordinate (Lt) at (0, 3);
+      \coordinate (Lp) at (0, 0);
+      \coordinate (Lb) at (0, -3);
+
+      \coordinate (X) at (3.5, 1.5);
+      \coordinate (Xp) at (3.5, -1.5);
+
+      \coordinate (Y) at (-4, 1.5);
+      \coordinate (Yp) at (-4, -1.5);
+      
+      \draw[above] (Lt) node {$\begin{pmatrix}
+          R & 0 \\
+          0 & 0 \\
+          0 & 0 \\
+          0 & I_{p'}
+        \end{pmatrix}$};
+
+      \draw[above] (Lp) node {$\begin{pmatrix}
+          0 & 0 & 0 \\
+          0 & 0 & 0 \\
+          \id{p-1} & 0 & 0 \\
+          0 & R' & 0 \\
+          0 & 0 & 1 \\
+        \end{pmatrix}$};
+
+      \draw[above] (Lb) node {$\begin{pmatrix}
+          R & 0 \\
+          0 & 0 \\
+          0 & 0 \\
+          0 & I_{p'}
+        \end{pmatrix}$};
+
+      \draw[right] (X) node {$\begin{pmatrix}
+          \id{p-1} & P & 0 \\
+          0 & P & 1 \\
+          -P'_{.<p} & \id{p'}-P'P & -P'_{.p} \\ 
+        \end{pmatrix}$};
+
+      \draw[right] (Xp) node {$\begin{pmatrix}
+          \left(\id{p}-PP'\right)_{<p.} & -P_{<p.} \\
+          P' & \id{p'} \\
+          \left(\id{p}-PP'\right)_{p.} & -P_{p.}
+        \end{pmatrix}$};
+
+      \draw[left] (Y) node {$\begin{pmatrix}
+          \id{q} & 0 & R_{.<p} & Q & R_{.p} \\
+          -Z & P & 0 & PZ'-ZQ & 0 \\
+          -Q' & -R' & 0 & Z'_2R'_2 & 0 \\
+          0 & \id{p'} & -P'_{.<p} & Z' & -P'_{.p}
+        \end{pmatrix}$};
+
+      \draw[left] (Yp) node {$\begin{pmatrix}
+          Z_2R_2 & -R & -Q & 0 \\
+          P'Z-Z'Q' & P' & -Z' & 0 \\
+          Z_{<p.} & {\id{p}}_{<p.} & 0 & -P_{<p.} \\
+          Q' & 0 & \id{q'} & R' \\
+          Z_{p.} & {\id{p}}_{p.} & 0 & -P_{p.}
+        \end{pmatrix}$};
+      
+      \draw[left] (Relt) node {$\g{D}^{1\times\left(
+          q+p+q'+p'\right)}$};
+      \draw[right] (Gent) node {$\g{D}^{1\times\left(
+          p+p'\right)}$};
+      \draw[left] (Relp) node {$\g{D}^{1\times\left(
+          q+p'+(p-1)+q'+1\right)}$};
+      \draw[right] (Genp) node {$\g{D}^{1\times\left(
+          (p-1)+p'+1\right)}$};
+      \draw[left] (Relb) node {$\g{D}^{1\times\left(
+          q+p+q'+p'\right)}$};
+      \draw[right] (Genb) node {$\g{D}^{1\times\left(
+          p+p'\right)}$};
+
+      \draw[->] (Relt) -- (Gent);
+      \draw[->] (Relp) -- (Genp);
+      \draw[->] (Relb) -- (Genb);
+
+      \draw[->] (SRelt) -- (NRelp);
+      \draw[->] (SGent) -- (NGenp);
+
+      \draw[->] (SRelp) -- (NRelb);
+      \draw[->] (SGenp) -- (NGenb);
+      
+    \end{tikzpicture}
+  \end{changemargin}
+\end{center}
+
+\section{Objects for constructing the reduced iso}
+
+\paragraph{$\sigma_{\g{XY}}$.}
+
+\begin{center}
+  \begin{tikzpicture}
+    \coordinate (Rel) at (-2, 1);
+    \coordinate (SRel) at (-3, 0.8);
+    \coordinate (Gen) at (2, 1);
+    \coordinate (SGen) at (2.3, 0.8);
+    \coordinate (Relp) at (-2, -2);
+    \coordinate (NRelp) at (-3, -1.8);
+    \coordinate (Genp) at (2, -2);
+    \coordinate (NGenp) at (2.3, -1.8);
+    \coordinate (R) at (0, 1);
+    \coordinate (Rp) at (0, -2);
+    \coordinate (Q) at (-3, -0.5);
+    \coordinate (P) at (2.3, -0.5);
+
+    \draw[above] (R) node {$\begin{pmatrix}
+        R \\
+        0 \\
+        0
+      \end{pmatrix}$};
+    \draw[above] (Rp) node {$\begin{pmatrix}
+        0 & 0 \\
+        0 & 0 \\
+        \id{p-1} & 0 \\
+        0 & R' 
+      \end{pmatrix}$};
+    \draw[left] (Q) node {$\begin{pmatrix}
+        \id{q} & 0 & R_{.<p} & Q \\
+        -Z & P & 0 & PZ'-ZQ \\
+        -Q' & -R' & 0 & Z'_2R'_2
+      \end{pmatrix}$};
+    \draw[right] (P) node {$\begin{pmatrix}
+        \id{p-1} & P \\
+        0 & P
+      \end{pmatrix}$};
+
+    \draw[left] (Rel) node {$\g{D}^{1\times(q+p+q')}$};
+    \draw[right] (Gen) node {$\g{D}^{1\times p}$};
+    \draw[->] (Rel) -- (Gen);
+    
+    \draw[left] (Relp) node {$\g{D}^{1\times(q+p'+(p-1)+q')}$};
+    \draw[right] (Genp) node {$\g{D}^{1\times (p-1)+p'}$};
+    \draw[->] (Relp) -- (Genp);
+
+    \draw[->] (SRel) -- (NRelp);
+    \draw[->] (SGen) -- (NGenp);
+  \end{tikzpicture}
+\end{center}
+
+\paragraph{$\sigma_{\g{X1}}$.}
+
+\begin{center}
+  \begin{tikzpicture}
+    \coordinate (Rel) at (-2, 1);
+    \coordinate (SRel) at (-3, 0.8);
+    \coordinate (Gen) at (2, 1);
+    \coordinate (SGen) at (2.3, 0.8);
+    \coordinate (Relp) at (-2.7, -2);
+    \coordinate (NRelp) at (-3, -1.8);
+    \coordinate (Genp) at (2, -2);
+    \coordinate (NGenp) at (2.3, -1.8);
+    \coordinate (R) at (0, 1);
+    \coordinate (Rp) at (0, -2);
+    \coordinate (Q) at (-3, -0.5);
+    \coordinate (P) at (2.3, -0.5);
+
+    \draw[above] (R) node {$\begin{pmatrix}
+        0 & 0 \\
+        0 & 0 \\
+        \id{p-1} & 0 \\
+        0 & R' 
+      \end{pmatrix}$};
+    
+    \draw[above] (Rp) node {$\id{\g{D}}$};
+    \draw[left] (Q) node {$\begin{pmatrix}
+        R_{.p} \\
+        0 \\
+        0
+      \end{pmatrix}$};
+    \draw[right] (P) node {$\begin{pmatrix}
+        0 \\
+        \vdots \\
+        0 \\
+        1
+      \end{pmatrix}$};
+
+    \draw[left] (Rel) node {$\g{D}^{1\times(q+p+q')}$};
+    \draw[right] (Gen) node {$\g{D}^{1\times p}$};
+    \draw[->] (Rel) -- (Gen);
+    
+    \draw[left] (Relp) node {$\g{D}$};
+    \draw[right] (Genp) node {$\g{D}$};
+    \draw[->] (Relp) -- (Genp);
+
+    \draw[->] (SRel) -- (NRelp);
+    \draw[->] (SGen) -- (NGenp);
+
+  \end{tikzpicture}
+\end{center}
+
+\paragraph{$\sigma_{\g{XY}}(x_0)$.}
+
+\begin{center}
+  \begin{tikzpicture}
+    \coordinate (Rel) at (-2.7, 1);
+    \coordinate (SRel) at (-3, 0.8);
+    \coordinate (Gen) at (2.1, 1);
+    \coordinate (SGen) at (2.3, 0.8);
+    \coordinate (Relp) at (-2.7, -2);
+    \coordinate (NRelp) at (-3, -1.8);
+    \coordinate (Genp) at (2, -2);
+    \coordinate (NGenp) at (2.3, -1.8);
+    \coordinate (R) at (0, 1);
+    \coordinate (Rp) at (0, -2);
+    \coordinate (Q) at (-3, -0.5);
+    \coordinate (P) at (2.3, -0.5);
+
+    \draw[above] (R) node {$\id{\g{D}}$};
+    
+    \draw[above] (Rp) node {$\begin{pmatrix}
+        0 & 0 \\
+        0 & 0 \\
+        \id{p-1} & 0 \\
+        0 & R' 
+      \end{pmatrix}$};
+    
+
+    \draw[left] (Q) node {$\begin{pmatrix}
+        0 & P_{p.} & \left(ZR\right)_{p<p} & \left(PZ'\right)_{p.}
+      \end{pmatrix}$};
+    \draw[right] (P) node {$\begin{pmatrix}
+        (-PP')_{p<p} & \left(P-PP'P\right)_{p.}
+      \end{pmatrix}$};
+
+    \draw[left] (Rel) node {$\g{D}$};
+    \draw[right] (Gen) node {$\g{D}$};
+    \draw[->] (Rel) -- (Gen);
+    
+    \draw[left] (Relp) node {$\g{D}^{1\times\left(
+        q+p'+(p-1)+q'
+        \right)}$};
+    \draw[right] (Genp) node {$\g{D}^{1\times\left(
+        (p-1)+p'
+        \right)}$};
+    \draw[->] (Relp) -- (Genp);
+
+    \draw[->] (SRel) -- (NRelp);
+    \draw[->] (SGen) -- (NGenp);
+
+  \end{tikzpicture}
+\end{center}
+
+\paragraph{$\sigma_{\one^{p' }\one}$.}
+
+\begin{center}
+  \begin{tikzpicture}
+    \coordinate (Rel) at (-2.3, 0);
+    \coordinate (SRel) at (-3, -0.2);
+    \coordinate (Gen) at (2, 0);
+    \coordinate (SGen) at (2.3, -0.2);
+    \coordinate (Relp) at (-2.7, -2);
+    \coordinate (NRelp) at (-3, -1.8);
+    \coordinate (Genp) at (2, -2);
+    \coordinate (NGenp) at (2.3, -1.8);
+    \coordinate (R) at (0, 0);
+    \coordinate (Rp) at (0, -2);
+    \coordinate (Q) at (-3, -1);
+    \coordinate (P) at (2.3, -1);
+
+    \draw[above] (R) node {$\id{p'}$};
+    \draw[above] (Rp) node {$\id{\g{D}}$};
+    \draw[left] (Q) node {$\begin{pmatrix}
+        -P'_{.p}
+      \end{pmatrix}$};
+    \draw[right] (P) node {$\begin{pmatrix}
+        -P'_{.p}
+      \end{pmatrix}$};
+
+    \draw[left] (Rel) node {$\g{D}^{1\times p'}$};
+    \draw[right] (Gen) node {$\g{D}^{1\times p'}$};
+    \draw[->] (Rel) -- (Gen);
+    
+    \draw[left] (Relp) node {$\g{D}$};
+    \draw[right] (Genp) node {$\g{D}$};
+    \draw[->] (Relp) -- (Genp);
+
+    \draw[->] (SRel) -- (NRelp);
+    \draw[->] (SGen) -- (NGenp);
+
+  \end{tikzpicture}
+\end{center}
+
+\paragraph{$\sigma_{\one^{p'},\g{Y}}$.}
+
+\begin{center}
+  \begin{tikzpicture}
+    \coordinate (Rel) at (-3, 1);
+    \coordinate (SRel) at (-3.5, 0.8);
+    \coordinate (Gen) at (2, 1);
+    \coordinate (SGen) at (2.3, 0.8);
+    \coordinate (Relp) at (-2, -2);
+    \coordinate (NRelp) at (-3.5, -1.8);
+    \coordinate (Genp) at (2, -2);
+    \coordinate (NGenp) at (2.3, -1.8);
+    \coordinate (R) at (-0.25, 1);
+    \coordinate (Rp) at (0, -2);
+    \coordinate (Q) at (-3.5, -0.5);
+    \coordinate (P) at (2.3, -0.5);
+
+    \draw[above] (R) node {$\id{p'}$};
+    \draw[above] (Rp) node {$\begin{pmatrix}
+        0 & 0 \\
+        0 & 0 \\
+        \id{p-1} & 0 \\
+        0 & R' 
+      \end{pmatrix}$};
+    \draw[left] (Q) node {$\begin{pmatrix}
+        0 & \id{p'} & -P'_{.<p} & Z'
+      \end{pmatrix}$};
+    \draw[right] (P) node {$\begin{pmatrix}
+        -P'_{.<p} & \id{p'}-P'P
+      \end{pmatrix}$};
+
+    \draw[left] (Rel) node {$\g{D}^{1\times p'}$};
+    \draw[right] (Gen) node {$\g{D}^{1\times p'}$};
+    \draw[->] (Rel) -- (Gen);
+    
+    \draw[left] (Relp) node {$\g{D}^{1\times(q+p'+(p-1)+q')}$};
+    \draw[right] (Genp) node {$\g{D}^{1\times (p-1)+p'}$};
+    \draw[->] (Relp) -- (Genp);
+
+    \draw[->] (SRel) -- (NRelp);
+    \draw[->] (SGen) -- (NGenp); 
+  \end{tikzpicture}
+\end{center}
+
+\section{Construction of the isomorphism}
+
+\paragraph{$\sigma_{\g{XY}}\left(x_0\right)-y_{p'}+\left(1+d_{p'}\right)
+  \sum_{i=1}^{p'-1}\gamma_iy'_i$.}
+
+Relations part:
+
+\[\begin{pmatrix}
+0 & A & B & C 
+\end{pmatrix},\]
+where
+\[\begin{split}
+A&=\begin{pmatrix}
+\left(P_{pj}+\left(1-P'_{p'p}\right)\gamma_j\right)_{1\leq j\leq p'-1} &
+P_{pp'}-1+\left(1-P'_{p'p}\right)\sum_{i=1}^{p'-1}\gamma_iu_i
+\end{pmatrix}\\
+B&=\begin{pmatrix}
+\left(ZR\right)_{p<p}-P'_{p'<p}+\left(1-P'_{p'p}\right)\sum_{i=1}^{p'-1}
+  \gamma_i\left(P'_{i<p}-u_iP'_{p'<p}\right)
+\end{pmatrix}\\
+C&=\begin{pmatrix}
+\left(PZ'\right)_{p.}-Z'_{p'.}+\left(1-P'_{p'p}\right)\left(
+\sum_{i=1}^{p'-1}\gamma_iZ'_{i.}+\gamma_iu_iZ'_{p'.}\right)
+\end{pmatrix}
+\end{split}.\]
+
+Generators part:
+\[\begin{pmatrix}
+A' & B'
+\end{pmatrix},\]
+where
+\[\begin{split}
+A'&= P'_{p'<p}-\left(PP'\right)_{p<p}-\left(1-P'_{p'p}\right)
+\sum_{i=1}^{p'-1} \gamma_i\left(P'_{i<p}+u_iP'_{p'<p}\right)\\
+B'&=\left(P-PP'P\right)_{p.}-\left(\id{p'}-P'P\right)_{p'.}
++\left(1-P'_{p'p}\right)\sum_{i=1}^{p'-1}\gamma_i\left(\left(\id{p'}-P'P
+  \right)_{i.}+u_i\left(\id{p'}-P'P\right)_{p'.}\right)
+\end{split}.\]
+
+\section{Definition of $\beta$}
+
+We have the following relation
+\begin{equation}\label{equ:Bezout_relation}
+  \begin{pmatrix}
+    1 & P_{p1} & \cdots & P_{pp'}
+  \end{pmatrix}
+  \begin{pmatrix}
+    1-\sum_{i=1}^{p'}P_{pi}P'_{ip} \\
+    P'_{1p} \\
+    \vdots \\
+    P'{p'p}
+  \end{pmatrix}=1_{\g{D}},
+\end{equation}
+so that, using the stable rank, we have
+\begin{equation}\label{equ:reduced_Bezout_relation}
+  \begin{pmatrix}
+    d & d_{1} & \cdots & d_{p'-1}
+  \end{pmatrix}
+  \begin{pmatrix}
+    1-\sum_{i=1}^{p'}P_{pi}P'_{ip} \\
+    P'_{1p} + u_1P'{p'p} \\
+    \vdots \\
+    P'_{(p'-1)p} + u_{p'-1}P'{p'p}
+  \end{pmatrix}=1_{\g{D}}.
+\end{equation}
+Hence, the isomorphism $\beta$ of $\g{X}\oplus\one^{p'}$ is defined by
+the following commutative diagram:
+\begin{center}
+  \begin{tikzpicture}
+    \coordinate (Rel) at (-2.3, 0);
+    \coordinate (SRel) at (-3.2, -0.2);
+    \coordinate (Gen) at (2, 0);
+    \coordinate (SGen) at (2.3, -0.2);
+    \coordinate (Relp) at (-2.7, -2);
+    \coordinate (NRelp) at (-3.2, -1.8);
+    \coordinate (Genp) at (2, -2);
+    \coordinate (NGenp) at (2.3, -1.8);
+    \coordinate (R) at (0, 0);
+    \coordinate (Rp) at (0, -2);
+    \coordinate (Q) at (-3.2, -1);
+    \coordinate (P) at (2.3, -1);
+
+    \draw[above] (R) node {$A$};
+    \draw[above] (Rp) node {$A$};
+    \draw[left] (Q) node {$B$};
+    \draw[right] (P) node {$C$};
+
+    \draw[left] (Rel) node {$\g{D}^{1\times (q+p+q'+p')}$};
+    \draw[right] (Gen) node {$\g{D}^{1\times (p+p')}$};
+    \draw[->] (Rel) -- (Gen);
+    
+    \draw[left] (Relp) node {$\g{D}^{1\times (q+p+q'+p')}$};
+    \draw[right] (Genp) node {$\g{D}^{1\times (p+p')}$};
+    \draw[->] (Relp) -- (Genp);
+
+    \draw[->] (SRel) -- (NRelp);
+    \draw[->] (SGen) -- (NGenp);
+
+  \end{tikzpicture}
+\end{center}
+where
+\[A=\begin{pmatrix}
+R & 0 \\
+0 & 0 \\
+0 & 0 \\
+0 & \id{p'} \\
+\end{pmatrix},\ \
+B=\begin{pmatrix}
+\id{q} & 0 & 0 & 0 \\
+0 & \id{p} & 0 & 0 \\
+0 & 0 & \id{q'} & 0 \\
+0 & 0 & 0 & \id{p'}+D
+\end{pmatrix}\ \ \text{and}\ \
+C=\begin{pmatrix}
+\id{p} & 0 \\
+0 & \id{p'} + D
+\end{pmatrix}
+\]
+where
+\[D=\begin{pmatrix}
+0 & \cdots & 0 & u_1 \\
+\vdots & \vdots & \vdots & \vdots \\
+\vdots & \vdots & \vdots & u_{p'-1} \\
+0 & \cdots & 0 & 0 \\
+\end{pmatrix}.\]
+
+\end{document}

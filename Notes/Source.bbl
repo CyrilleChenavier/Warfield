@@ -1,0 +1,11 @@
+\def\cprime{$'$}
+\begin{thebibliography}{1}
+
+\bibitem{cluzeau2011constructive}
+Thomas Cluzeau and Alban Quadrat.
+\newblock A constructive version of fitting's theorem on isomorphisms and
+  equivalences of linear systems.
+\newblock In {\em Multidimensional (nD) Systems (nDs), 2011 7th International
+  Workshop on}, pages 1--8. IEEE, 2011.
+
+\end{thebibliography}
