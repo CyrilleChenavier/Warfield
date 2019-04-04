@@ -11,10 +11,14 @@
 \usepackage{amssymb,mathrsfs, amsmath}
 \usepackage{tikz}
 \usepackage{tikz-cd}
+\usepackage{multicol}
 
 %newcommand
+\newcommand\g[1]{\textbf{#1}}
 \newcommand\id[1]{\text{id}_{#1}}
 \newcommand\sr{\text{sr}(D)}
+\newcommand\im{\text{im}}
+\newcommand\p{\text{pr}}
 %===============================================================================
 \begin{document}
 \begin{frontmatter}
@@ -45,7 +49,7 @@
 \section{Introduction}
 
 
-\section{Module isomorphisms and equivalent matrices}
+\section{Isomorphisms and equivalent matrices}
 
 In this section, we recall the characterization of morphisms between
 finitely presented left $D$-modules, as well as results of Fitting and
@@ -54,21 +58,21 @@ Warfield which rely isomorphic left $D$-modules to matrix conjugation.
 \subsection{Effective version of Fitting's Theorem}
 
 Consider two left $D$-modules $M$ and $M'$ with finite presentations:
-\begin{equation}\label{equ:presentations}
-  \begin{small}
-    \begin{tikzcd}
-      D^{1\times q}\arrow[r, ".R"] &
-      D^{1\times p}\arrow[r, "\pi"] &
-      M\arrow[r] &
-      0, 
-      \\
-        D^{1\times q'}\arrow[r, ".R'"] &
-        D^{1\times p'}\arrow[r, "\pi'"] &
-        M'\arrow[r] &
-        0, 
-    \end{tikzcd}
+\medskip
+\begin{small}
+  \[\begin{tikzcd}
+  D^{1\times q}\arrow[r, ".R"] &
+  D^{1\times p}\arrow[r, "\pi"] &
+  M\arrow[r] &
+  0, 
+  \\
+  D^{1\times q'}\arrow[r, ".R'"] &
+  D^{1\times p'}\arrow[r, "\pi'"] &
+  M'\arrow[r] &
+  0, 
+  \end{tikzcd}\]
   \end{small}
-\end{equation}
+\medskip
 namely, \emph{exact sequences} (see~\cite{Ro:09}), where
 $R\in~ D^{q\times p}$, $(.R)(\mu)=\mu R$, for every $\mu\in D^{1\times q}$
 and $\pi$ is the natural projection on $M=D^{1\times p}/(D^{1\times q}R)$
@@ -77,12 +81,11 @@ and $\pi$ is the natural projection on $M=D^{1\times p}/(D^{1\times q}R)$
 From~\cite{Ro:09}, there exists $f\in\hom_D(M,M')$ if and only if there
 exist matrices $P\in D^{p\times p'}$ and $Q\in D^{q\times q'}$ such that
 $RP=QR'$ and
-\begin{equation}\label{eq:def_of_f}
-  \forall\lambda\in D^{1\times p},\ f(\pi(\lambda))=\pi'(\lambda\pi).
-\end{equation}
+\medskip
+\[\forall\lambda\in D^{1\times p},\ f(\pi(\lambda))=\pi'(\lambda\pi).\]
+\medskip
 Hence, the following diagram is exact and commutative:
-
-
+\medskip
 \begin{center}
   \begin{small}
     \begin{tikzcd}
@@ -98,8 +101,10 @@ Hence, the following diagram is exact and commutative:
     \end{tikzcd}
   \end{small}
 \end{center}
+\medskip
 
-We let $n:=p+p'$ and $m:=q+p'+p+q'$. The two $m\times n$ matrices
+We let $n:=q+p'+p+q'$ and $m:=p+p'$. The two $n\times m$ matrices
+\medskip
 \begin{equation}\label{equ:def_of_L}
   \begin{small}
     L:=\begin{pmatrix}
@@ -116,15 +121,17 @@ We let $n:=p+p'$ and $m:=q+p'+p+q'$. The two $m\times n$ matrices
     \end{pmatrix},
   \end{small}
 \end{equation}
-induce finite presentations:  $M\simeq D^{1\times n}/(D^{1\times m}L)$ 
-and $M'\simeq D^{1\times n}/(D^{1\times m}L')$. In~\cite{ClQu:11}, an
+\medskip
+induce finite presentations: $M\simeq D^{1\times m}/(D^{1\times n}L)$ 
+and $M'\simeq D^{1\times m}/(D^{1\times n}L')$. In~\cite{ClQu:11}, an
 effective version of a result due to~\cite{Fi:36} is given. If $f$ is an
 isomorphism, then $L$ and $L'$ are equivalent: there exist $6$ matrices
 $R_2\in D^{r\times q}$, $R'_2\in D^{r'\times q'}$,
 $Z_2\in D^{p\times q}$, $Z_2\in D^{q\times r}$,
 $Z'_2\in D^{q'\times r'}$, $Z\in D^{p\times q}$ and
-$Z'\in D^{p'\times q'}$ and two invertible matrices of size $n$ and $m$
-\begin{equation}\label{equ:def_of_XF}
+$Z'\in D^{p'\times q'}$ and two invertible matrices of size $m$ and $n$
+\medskip
+\begin{equation}\label{equ:def_of_XF_YF}
   \begin{small}
     X_F:=\begin{pmatrix}
     \id{p} & P \\
@@ -138,8 +145,10 @@ $Z'\in D^{p'\times q'}$ and two invertible matrices of size $n$ and $m$
     \end{pmatrix},
   \end{small}
 \end{equation}
+\medskip
 with inverses
-\begin{equation}\label{equ:def_of_XF-}
+\medskip
+\begin{equation}\label{equ:def_of_XF-_YF-}
   \begin{small}
     X_F^-:=\begin{pmatrix}
     \id{p}-PP' & -P \\
@@ -154,11 +163,30 @@ with inverses
   \end{small}
 \end{equation}
 such that
-\begin{equation}\label{equ:Fitting_equiv}
-  \begin{small}
+\begin{small}
+  \begin{equation}\label{equ:Fitting_eq}
     L'=Y_F^-LX_F.
-  \end{small}
-\end{equation}
+  \end{equation}
+\end{small}
+\medskip
+In other words, the following diagram is exact commutative
+\begin{center}
+    \begin{tikzcd}
+      D^{1\times n}\arrow[r, ".L"] \arrow[d, ".Y_W"', shift right=1ex] &
+      D^{1\times m}\arrow[r, "\pi\oplus 0"] \arrow[d, ".X_W"', shift right=1ex]&
+      M\arrow[r] \arrow[d, "f"', shift right=1ex]&
+      0
+      \\
+      D^{1\times n}\arrow[r, ".L'"] \arrow[u, ".Y_W^-"', shift right=1ex]&
+      D^{1\times m}\arrow[r, "0\oplus\pi'"] \arrow[u, ".X_W^-"', shift right=1ex]&
+      M'\arrow[r] \arrow[u, "f^-"', shift right=1ex]&
+      0
+    \end{tikzcd}
+  \end{center}
+
+
+
+\vspace{-0.4cm}
 
 \subsection{Warfield's Theorem}
 
@@ -180,18 +208,20 @@ smallest integer in the stable rank of $D$.
 Assume that the two matrices (\ref{equ:def_of_L}) are equivalent, then
 Warfield's Theorem asserts that if there exist two integers $r$ and $s$
 such that
-\smallskip
+\medskip
 \begin{equation}\label{equ:s_r}
   \left\{
   \begin{split}
     & s\leq\min(p+q',q+p'),\\
     & \sr\leq\max(p+q'-s,q+p'-s),\\
-    &s\leq\min(p+q',q+p'), \\
-    & \sr\leq\max(p+q'-s,q+p'-s),
+    &r\leq\min(p,p'), \\
+    & \sr\leq\max(p-r, p'-r),
   \end{split}
   \right.
 \end{equation}
-then the following $(m-r-s)\times (n-r)$ matrices are equivalent
+\medskip
+then the following $(n-r-s)\times (m-r)$ matrices are equivalent
+\medskip
 \begin{equation}\label{equ:def_of_L_bar}
   \begin{small}
     \overline{L}:=\begin{pmatrix}
@@ -206,14 +236,355 @@ then the following $(m-r-s)\times (n-r)$ matrices are equivalent
     \end{pmatrix},
   \end{small}
 \end{equation}
+\medskip
 and induce finite presentations of $M$ and $M'$, respectively.
 
 In the next section, we introduce a procedure which computes invertible
 matrices $X_W$ and $Y_W$ such that
-\begin{equation}\label{equ:Warfield_equiv}
-  \overline{L'}=Y_W^-\overline{L}X_W.
+\medskip
+\[\overline{L'}=Y_W^-\overline{L}X_W.\]
+
+\section{Effective Warfield's Theorem}
+
+Throughout this Section, we fix some notations. Let $M$ and $M'$ be two
+left $D$-modules, isomorphic with $f:M\overset{\sim}{\to}M'$, finitely
+presented by matrices $R\in D^{q\times p}$ and $R'\in D^{q'\times p'}$,
+respectively, and let $L$, $L'$, $X_F$, $Y_F$, $X_F^-$ and $Y_f^-$ be the
+matrices defined in (\ref{equ:def_of_L}) (\ref{equ:def_of_XF_YF}) and
+(\ref{equ:def_of_XF-_YF-}). Let $m:=q+p'+p+q'$ and $n:=p+p'$. Given a
+nonzero integer $k$, we let $\overline{k}:=k-1$. For $1\leq i\leq k$, the
+$i$-th vector of the canonical basis of $D^{1\times k}$ is written $e_i^k$. 
+
+\subsection{Reduction of the zero bloc}
+
+In this section, we present the procedure for removing one $0$ in $L$ and
+$L'$. Inductive applications of this procedure enables us to remove many
+$0$. Without lost of generalities, we may suppose that $q+p'\leq p+q'$,
+and we assume that $\sr\leq\overline{p+q'}$, so that the hypotheses of
+(\ref{equ:s_r}) are fullfilled for $s=1$. Our purpose is to show that the
+following $\overline{n}\times m$ matrices are equivalent:
+\medskip
+\begin{small}
+  \[\tilde{L}:=\begin{pmatrix}
+  R & 0\\
+  0 & \id{p'}\\
+  0 & 0
+  \end{pmatrix}\ \ \text{and}\ \
+  \tilde{L}':=\begin{pmatrix}
+  0 & 0\\
+  \id{p} & 0\\
+  0 & R'
+  \end{pmatrix}.\]
+\end{small}
+
+\smallskip
+
+\begin{prop}\label{prop:reduced_Bezout_zero_part}
+  There exist $\g{c},\ \g{u}\in D^{1\times p}$ and
+  $\g{d},\ \g{v}\in D^{1\times\overline{q'}}$ such that
+  \medskip
+  \begin{equation}\label{equ:reduced_Bezout_zero_part}
+    \begin{small}
+      \begin{pmatrix}
+        0 & \g{c} & \g{d}\end{pmatrix}\begin{pmatrix}
+        \id{q+p'} & 0 & 0 & 0\\
+        0 & \id{p} & 0 & \g{u}^T\\
+        0 & 0 & \id{\overline{q'}} & \g{v}^T
+      \end{pmatrix}Y_F(e^{n}_{q+p'})^T=1.
+    \end{small}
+  \end{equation}
+
+\end{prop}
+
+\begin{pf}
+  Getting terms of the $p'$-th column and $p'$-th line in the relation
+  $\id{p'}=P'P+Z'R'$, we get the following:
+  \medskip
+  \begin{small}
+    \[\sum_{k=1}^pP'_{p'k}P_{kp'}+\sum_{k=1}^{q'}Z'_{p'k}R'_{kp'}=1.\]
+  \end{small}
+  \medskip
+  From $\sr\leq\overline{p+q'}$, we deduce that there exist $c_1,
+  \cdots,\ c_p,\ d_1,\cdots,\ d_{\overline{q'}},\ u_1,\cdots,\ u_p,\ v_1,
+  \cdots,\ v_{\overline{q'}}\in D$ such that
+  \medskip
+  \begin{small}
+    \begin{equation}\label{equ:reduced_Bezout_zero_part_proof}
+      \sum_{k=1}^pc_k\left(P_{kp'}+u_kR'_{q'p'}\right)+\sum_{k=1}^{
+        \overline{q'}}d_k\left(R'_{kp'}+v_kR'_{q'p'}\right)=1.
+    \end{equation}
+  \end{small}
+  \medskip
+  Letting $\g{c}:=\left(c_1,\cdots,\ c_p\right)$, $\g{d}:=\left(-d_1,
+  \cdots,\ -d_{\overline{q'}}\right)$, $\g{u}:=~\left(-u_1,\cdots,\ -u_p
+  \right)$ and $\g{v}:=\left(v_1,\cdots,\ v_{\overline{q'}}\right)$, the
+  hand side of \eqref{equ:reduced_Bezout_zero_part_proof} is the left
+  hand side of \eqref{equ:reduced_Bezout_zero_part}, which proves
+  Proposition~\ref{prop:reduced_Bezout_zero_part}.
+\end{pf}
+
+\medskip
+
+With the notations of Proposition~\ref{prop:reduced_Bezout_zero_part},
+we introduce the lines $\tilde{\ell}\in D^{1\times\overline{n}}$ and 
+$\ell\in D^{1\times n}$ defined as follows:
+\medskip
+\[\tilde{\ell}:=\begin{pmatrix}
+  0 & \g{c} & \g{d}\end{pmatrix}\ \ \text{and}\ \
+  \ell:=\begin{pmatrix}
+  0 & \g{c} & \g{d} & 0
+    \end{pmatrix},
+\]
+\medskip
+as well as the matrices $U\in D^{n\times n}$,
+$F\in D^{\overline{n}\times n}$ defined as follows:
+\medskip
+\begin{small}
+  \[U:=\begin{pmatrix}
+    \id{q+p'} & 0 & 0 & 0\\
+    0 & \id{p} & 0 & \g{u}^T\\
+    0 & 0 & \id{\overline{q'}} & \g{v}^T\\
+    0 & 0 & 0 & 1
+    \end{pmatrix}\ \ \text{and}\ \
+    F:=\begin{pmatrix}
+    \id{\overline{n}} & 0
+    \end{pmatrix}UY_F.
+  \]
+\end{small}
+\medskip
+
+From Relation (\ref{equ:reduced_Bezout_zero_part}) and
+\medskip
+\begin{small}
+  \[F=\begin{pmatrix}
+  \id{q+p'} & 0 & 0 & 0\\
+  0 & \id{p} & 0 & \g{u}^T\\
+  0 & 0 & \id{\overline{q'}} & \g{v}^T
+  \end{pmatrix}Y_F,
+  \]
+\end{small}
+\medskip
+we get:
+\medskip
+\begin{equation}\label{equ:extend_Bezout_zero_part}
+  1=\tilde{\ell}F(e^n_{q+p'})^T=\ell UY_F(e^n_{q+p'})^T.
 \end{equation}
+
+We consider the matrices $\p,\ \p'\in D^{n\times\overline{n}}$
+\begin{small}
+  \[\begin{split}
+  \p:=&\begin{pmatrix}
+  \id{\overline{n}}-F(e^{n}_{q+p'})^T\tilde{\ell}\\
+  \tilde{\ell}
+  \end{pmatrix},\\
+  \p':=&\left(\id{n}-(e^{n}_{q+p'})^T\ell UY_F\right)\begin{pmatrix}
+  \id{q+\overline{p'}} & 0\\
+  0 & 0\\
+  0 & \id{p+q'}
+  \end{pmatrix},
+  \end{split}\]
+  \end{small}
+\medskip
+and $\iota,\ \iota'\in D^{\overline{n}\times n}$ 
+\begin{small}
+  \[
+  \iota:=\begin{pmatrix}
+  \id{\overline{n}}-F(e^{n}_{q+p'})^T\tilde{\ell} &
+  F(e^{n}_{q+p'})^T
+  \end{pmatrix},\
+  \iota':=\begin{pmatrix}
+  \id{q+\overline{p'}} & 0 & 0\\
+  0 & 0 & \id{p+q'}
+  \end{pmatrix}.\]
+\end{small}
+\medskip
+
+\begin{prop}\label{prop:exact_sequences_zero_part}
+  We have the following relations:
+  \vspace{-0.5cm}
+  \begin{multicols}{2}
+    \begin{enumerate}
+    \item\label{it:split_pi_zero_part} $\iota\p=\id{\overline{n}}$,
+    \item\label{it:split_pip_zero_part} $\iota'\p'=\id{\overline{n}}$,
+    \item\label{it:ker_pi_zero_part} $\ker(.\p)=\emph{D}\ell$,
+    \item\label{it:ker_pip_zero_part} $\ker(.\p')=\emph{D}\ell UY_F$.
+    \end{enumerate}
+  \end{multicols}
+\end{prop}
+
+\begin{pf}
+  \begin{enumerate}
+  \item From \eqref{equ:extend_Bezout_zero_part}, we have
+    $\left(F(e^n_{q+p'})^T\tilde{\ell}\right)^2=F(e^{n}_{q+p'})^T
+    \tilde{\ell}$, from which we deduce $\iota\p=\id{\overline{n}}$ by
+    computing the matrix product.
+  \item We have $\iota'(e^n_{q+p'})^T=0$, from which we deduce
+    $\iota'\p'=~\id{\overline{n}}$ by computing the matrix product.
+  \item Considering the isomorphism
+    $D^{1\times n}\simeq~D^{1\times\overline{n}}\oplus~D$, we have
+    $\p=\p_1\p_2$, where $\p_1\in D^{n\times n}$ and
+    $\p_2\in D^{n\times \overline{n}}$ are defined as follows:
+    \medskip
+    \begin{small}
+      \[\p_1:=\begin{pmatrix}
+      \id{\overline{n}}-F(e^{n}_{q+p'})^T\tilde{\ell} & 0\\
+      0 & 1
+      \end{pmatrix}\ \ \text{and}\ \
+      \p_2:=\begin{pmatrix}
+      \id{\overline{n}}\\
+      \tilde{\ell}
+      \end{pmatrix}.\]
+    \end{small}
+    \medskip
+    From \eqref{equ:extend_Bezout_zero_part}, $\im(.\p_1)$ is included in
+    $\ker(.F(e^{n}_{q+p'})^T)\oplus~D$ and the restriction of $.\p_2$ to
+    the latter is injective: for $(u,x)\in\left(\ker(.F(e^{n}_{q+p'})^T)
+    \oplus D\right)\cap\ker(.\p_2)$, we have $u+x\tilde{\ell}=0$, which
+    gives $x=0$ and $u~=~0$ by \eqref{equ:extend_Bezout_zero_part}. Hence, we
+    have $\ker(.\p)=\ker(.\p_1)$, that is
+    $\ker\left(\id{\overline{n}}-.F(e^{n}_{q+p'})^T\tilde{\ell}\right)
+    \oplus 0$. We conclude by showing $\ker
+    \left(\id{\overline{n}}- .F(e^{n}_{q+p'})^T\tilde{\ell}\right)=D
+    \tilde{\ell}$: the right to left inclusion is due to
+    \eqref{equ:extend_Bezout_zero_part}, and the other one is due to the
+    relation $x=\left(xF(e^n_{q+p'})^T\right)\tilde{\ell}$, for every $x$
+    in $\ker\left(\id{\overline{n}}-.F(e^n_{q+p'})^T\tilde{\ell}\right)$.
+  \item From \eqref{equ:extend_Bezout_zero_part}, we have 
+    $D\ell UY_F\subseteq\ker(.\p')$. The converse inclusion is due to
+    the relation $x=x_{q+p'}\ell UY_F$, for every $x\in\ker(.\p')$.
+    Indeed, the first $q+\overline{p'}$ and the last $p+q'$ columns of
+    $x$ and $x_{q+p'}\ell UY_F$ are equal since $x\in\ker(.\p')$ implies
+    \medskip
+    \begin{small}
+      \[x\begin{pmatrix}
+        \id{q+\overline{p'}} & 0\\
+        0 & 0\\
+        0 & \id{p+q'}
+        \end{pmatrix}=x_{q+p'}\ell UY_F\begin{pmatrix}
+        \id{q+\overline{p'}} & 0\\
+        0 & 0\\
+        0 & \id{p+q'}
+        \end{pmatrix}.
+      \]
+    \end{small}
+    \medskip
+    Moreover, the $q+p'$-th colums of $x_{q+p'}\ell UY_F$ is computed
+    by right multiplication by $(e^n_{q+p'})^T$ and is equal to
+    $x_{q+p'}$ from \eqref{equ:extend_Bezout_zero_part}.
+    \end{enumerate}
+\end{pf}
+
+\bigskip
+
+\begin{thm}\label{thm:reduction_id}
+  With the previous notations, we let
+  \begin{center}
+    \begin{tabular}{l l}
+      $X_W:=X_F$, & $Y_W:=\iota UY_F\p'$,\\
+      & \\
+      $X_W^-:=X_F$, & $Y_W^-:=\iota'Y_F^-U^-\p$.
+    \end{tabular}
+  \end{center}
+  \medskip
+  The following diagram is exact and commutative:
+  \begin{center}
+    \begin{tikzcd}
+      D^{1\times\overline{n}}\arrow[r, ".\tilde{L}"] \arrow[d, ".Y_W"', shift right=1ex] &
+      D^{1\times m}\arrow[r, "\pi\oplus 0"] \arrow[d, ".X_W"', shift right=1ex]&
+      M\arrow[r] \arrow[d, "f"', shift right=1ex]&
+      0
+      \\
+      D^{1\times\overline{n}}\arrow[r, ".\tilde{L'}"] \arrow[u, ".Y_W^-"', shift right=1ex]&
+      D^{1\times m}\arrow[r, "0\oplus\pi'"] \arrow[u, ".X_W^-"', shift right=1ex]&
+      M'\arrow[r] \arrow[u, "f^-"', shift right=1ex]&
+      0
+    \end{tikzcd}
+  \end{center}
+  In particular, we have
+  \[\tilde{L'}=Y_W^-\tilde{L}X_W.\]
+\end{thm}
+
+\begin{pf}
+  We only have to show that the diagram is commutative.
+
+  First, we show that $Y_W$ and $Y_W^-$ are inverse to each other.
+  From Proposition~\ref{prop:exact_sequences_zero_part}, the lines of the
+  following diagram are exact
+  \medskip
+  \begin{center}
+    \begin{equation}\label{equ:diagram_reduction_zero}
+      \begin{tikzcd}
+        D\arrow[r, ".\ell"] \arrow[d, "\id{D}"']&
+        D^{1\times n}\arrow[r, "\p"] \arrow[d, ".UY_F"', shift right=1ex]&
+        D^{1\times\overline{n}}\arrow[r] \arrow[d, ".Y_W"', shift right=1ex]&
+        0
+        \\
+        D\arrow[r, ".\ell UY_F"'] &
+        D^{1\times n}\arrow[r, "\p'"'] \arrow[u, ".Y_F^-U^-"', shift right=1ex]&
+        D^{1\times\overline{n}}\arrow[r] \arrow[u, ".Y_W^-"', shift right=1ex]&
+        0
+      \end{tikzcd}
+    \end{equation}
+  \end{center}
+  Moreover, it is also commutative. Indeed, $\p Y_W$ is equal to
+  $\p\iota U Y_F\p'$ and from~\ref{it:split_pi_zero_part} of
+  Proposition~\ref{prop:exact_sequences_zero_part}, we have $\im(.\p\iota
+    -\id{n})\subseteq\ker(.\p)$. By commutativity of the left rectangle
+  and by exactness of the lines of \eqref{equ:diagram_reduction_zero}, we
+  have $(\p\iota-\id{n})UY_F\p'=0$, so that $\p Y_W=UY_F\p'$. In the
+  same manner, we show that $Y_F^-U^-\p=\p' Y_W^- $. By commutativity
+  and exactness of \eqref{equ:diagram_reduction_zero} and from the
+  equations $UY_FY_F^-U^-=Y_F^-U^-UY_F=\id{n}$, we get $Y_WY_W^-=~Y_W^-
+  Y_W=\id{\overline{n}}$.
+
+  Moreover, $Y_W\tilde{L}'=\tilde{L}X_F$ and $Y_W^-\tilde{L}=\tilde{L}'
+  X_F^-$ follow from the following commutative diagram:
+  \vspace{-0.4cm}
+  \begin{small}
+    \begin{center}
+      \begin{equation}\label{equ:main_commutative_diagram_zero_part}
+        \begin{tikzcd}
+          D^{1\times\overline{n}}\arrow[d, "\tilde{L}"']\arrow[r, "\iota", shift right=-0.5ex] &
+          D^{1\times n}\arrow[d, "L"]\arrow[r, "U", shift right=-0.5ex]
+          \arrow[l, "\p", shift left=0.5ex] &
+          D^{1\times n}\arrow[d, "L"]\arrow[r, "Y_F", shift right=-0.5ex] 
+          \arrow[l, "U^-", shift right=-0.5ex] &
+          D^{1\times n}\arrow[d, "L'"]\arrow[r, "\p'", shift right=-0.5ex] 
+          \arrow[l, "Y_F^-", shift right=-0.5ex] &
+          D^{1\times\overline{n}}\arrow[d, "\tilde{L}'"]
+          \arrow[l, "\iota'", shift right=-0.5ex] 
+          \\
+          D^{1\times m}\arrow[r, "\id{m}"] &
+          D^{1\times m}\arrow[r, "\id{m}", shift right=-0.5ex]
+          &
+          D^{1\times m}\arrow[r, "X_F", shift right=-0.5ex]
+          &
+          D^{1\times m}\arrow[r, "\id{m}", shift right=-0.5ex]
+          \arrow[l, "X_F^-", shift right=-0.5ex] &
+          D^{1\times m}
+        \end{tikzcd}
+      \end{equation}
+    \end{center}
+  \end{small}
+  Indeed by computing the matrix products and
+  from (\ref{equ:Fitting_eq}), we have the following relations:
+  \begin{equation}
+    \label{eq:formulas_reduction_zero_part}
+    \begin{tabular}{l l l l}
+      $\iota L=\tilde{L},$ & $UL=L,$ & $Y_FL'=LX_F$, & $\p'\tilde{L}'=L'$,\\
+      & & \\
+      $\iota'L'=\tilde{L}',$ & $Y_F^-L=L'X_F^-,$ & $U^-L=L$, & $\p\tilde{L}
+      =L$.
+    \end{tabular}
+  \end{equation}
+  More details are given in Section~\ref{sec:proofs_reduction_zero_part}.
+
+\end{pf}
+
+\subsection{Reduction of the identity bloc}
 
 \bibliography{Source}
 
 \end{document}
+
+  
