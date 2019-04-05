@@ -19,6 +19,8 @@
 \newcommand\sr{\text{sr}(D)}
 \newcommand\im{\text{im}}
 \newcommand\p{\text{pr}}
+
+
 %===============================================================================
 \begin{document}
 \begin{frontmatter}
@@ -251,7 +253,7 @@ left $D$-modules, isomorphic with $f:M\overset{\sim}{\to}M'$, finitely
 presented by matrices $R\in D^{q\times p}$ and $R'\in D^{q'\times p'}$,
 respectively, and let $L$, $L'$, $X_F$, $Y_F$, $X_F^-$ and $Y_f^-$ be the
 matrices defined in (\ref{equ:def_of_L}) (\ref{equ:def_of_XF_YF}) and
-(\ref{equ:def_of_XF-_YF-}). Let $m:=q+p'+p+q'$ and $n:=p+p'$. Given a
+(\ref{equ:def_of_XF-_YF-}). Let $n:=q+p'+p+q'$ and $m:=p+p'$. Given a
 nonzero integer $k$, we let $\overline{k}:=k-1$. For $1\leq i\leq k$, the
 $i$-th vector of the canonical basis of $D^{1\times k}$ is written $e_i^k$. 
 
@@ -542,7 +544,7 @@ and $\iota,\ \iota'\in D^{\overline{n}\times n}$
   \vspace{-0.4cm}
   \begin{small}
     \begin{center}
-      \begin{equation}\label{equ:main_commutative_diagram_zero_part}
+      \[
         \begin{tikzcd}
           D^{1\times\overline{n}}\arrow[d, "\tilde{L}"']\arrow[r, "\iota", shift right=-0.5ex] &
           D^{1\times n}\arrow[d, "L"]\arrow[r, "U", shift right=-0.5ex]
@@ -563,28 +565,552 @@ and $\iota,\ \iota'\in D^{\overline{n}\times n}$
           \arrow[l, "X_F^-", shift right=-0.5ex] &
           D^{1\times m}
         \end{tikzcd}
-      \end{equation}
+      \]
     \end{center}
   \end{small}
   Indeed by computing the matrix products and
-  from (\ref{equ:Fitting_eq}), we have the following relations:
-  \begin{equation}
-    \label{eq:formulas_reduction_zero_part}
-    \begin{tabular}{l l l l}
-      $\iota L=\tilde{L},$ & $UL=L,$ & $Y_FL'=LX_F$, & $\p'\tilde{L}'=L'$,\\
-      & & \\
-      $\iota'L'=\tilde{L}',$ & $Y_F^-L=L'X_F^-,$ & $U^-L=L$, & $\p\tilde{L}
-      =L$.
-    \end{tabular}
-  \end{equation}
-  More details are given in Section~\ref{sec:proofs_reduction_zero_part}.
-
+  from (\ref{equ:Fitting_eq}), we have the following relations, proven in
+  Section~\ref{sec:proofs_reduction_zero_part}:
+  \begin{small}
+    \begin{equation}
+      \label{eq:formulas_reduction_zero_part}
+      \begin{tabular}{l l l l}
+        $\iota L=\tilde{L},$ & $UL=L,$ & $Y_FL'=LX_F$, & $\p'\tilde{L}'=L'$,\\
+        & & \\
+        $\iota'L'=\tilde{L}',$ & $Y_F^-L=L'X_F^-,$ & $U^-L=L$, & $\p\tilde{L}
+        =L$.
+      \end{tabular}
+    \end{equation}
+  \end{small}
 \end{pf}
 
 \subsection{Reduction of the identity bloc}
+
+In this section, we present the procedure for removing on $1$ in $L$ and
+$L'$, many $1$ are removing by induction. Without lost of generality, we
+assume that $p\leq p'$ and $\sr\leq \overline{p'}$, hence (\ref{equ:s_r})
+is fullfilled for $r=1$. Our purpose is to show that the following
+$\overline{n}\times\overline{m}$ matrices are equivalent:
+\medskip
+\begin{small}
+  \[\tilde{L}:=\begin{pmatrix}
+  R & 0\\
+  0 & \id{\overline{p'}}\\
+  0 & 0
+  \end{pmatrix}\ \ \text{and}\ \
+  \tilde{L}':=\begin{pmatrix}
+  0 & 0\\
+  \id{\overline{p}} & 0\\
+  0 & R'
+  \end{pmatrix}.\]
+\end{small}
+
+\begin{prop}\label{prop:reduced_Bezout_id_part}
+  We let $k:=q+p'+p$ and $l:=p+q'$. There exist $\g{c}\in D$ and lines
+  $\g{d},\ \g{u}\in D^{1\times\overline{p'}}$ such that
+  \begin{small}
+    \begin{equation}\label{equ:reduced_Bezout_id_rel_part}
+      \left(\g{c}e^n_{k}Y_F^-\begin{pmatrix}
+      \id{q} & 0 & 0\\
+      0 & 0 & 0\\
+      0 & 0 & \id{l}
+      \end{pmatrix}+\begin{pmatrix}
+      0 & \g{d} & 0
+      \end{pmatrix}\right)\begin{pmatrix}
+        \id{q} & 0 & 0 & 0\\
+        0 & \id{\overline{p'}} & \g{u}^T & 0\\
+        0 & 0 & 0 & \id{l}
+      \end{pmatrix}Y_F(e^{n}_{k})^T=1,
+    \end{equation}
+  \end{small}
+  and
+  \begin{small}
+    \begin{equation}\label{equ:reduced_Bezout_id_gen_part}
+      \left(\g{c}e^m_pX_F^-\begin{pmatrix}
+      \id{p} & 0\\
+      0 & 0
+      \end{pmatrix}+\begin{pmatrix}
+      0 & \g{d}
+      \end{pmatrix}\right)\begin{pmatrix}
+        \id{p} & 0 & 0\\
+        0 & \id{\overline{p'}} & \g{u}^T
+      \end{pmatrix}X_F(e^{m}_{p})^T=1.
+    \end{equation}
+  \end{small}
+\end{prop}
+
+\begin{pf}
+  We have
+  \[
+  \left(1-PP'_{pp}\right)+\sum_{i=1}^{p'}P_{pi}P'_{ip}=1.
+  \]
+  By projecting this equality on the finitely presented left module
+  $N:=D/ D\left(1-PP'_{pp}\right)$, the latter is spanned by
+  $[P'_{1p}]_{N},\cdots,\ [P'_{p'p}]_{N}$. From~\cite{MCRo:01}, $\sr$ is
+  in the stable range of $N$, so that there exists $\g{u}:=\left(u_1,
+  \cdots,\ u_{\overline{p'}}\right)\in D^{1\times\overline{p'}}$ such
+  that $N$ is spanned by $[P'_{1p'}+u_1P'_{p'p}]_{\g{N}}$. Hence,
+  $\g{c}\in D$ and
+  $d_1,\cdots,\ d_{\overline{p'}}\in D^{1\times\overline{p'}}$ exist such
+  that
+  \begin{equation}\label{equ:reduced_Bezout_id_part}
+    \g{c}\left(1-PP'_{pp}\right)+\sum_{k=1}^{\overline{p'}}d_k\left(P'_{k
+      p}+u_kP'_{p'p}\right)=1.
+  \end{equation}
+  Letting $\g{d}:=\left( -d_1,\cdots,\ -d_{\overline{p'}}\right)\in D^{1
+    \times\overline{p'}}$ and from the relation $\id{p}=ZR+PP'$, the left
+  hand sides of \eqref{equ:reduced_Bezout_id_rel_part} and
+  \eqref{equ:reduced_Bezout_id_gen_part} are both equal to the left
+  hand side of \eqref{equ:reduced_Bezout_id_part}, which proves
+  Proposition~\ref{prop:reduced_Bezout_id_part}.
+  \end{pf}
+
+\medskip
+
+With the notations of Proposition~\ref{prop:reduced_Bezout_id_part},
+we introduce the lines $\tilde{\ell}_r\in D^{1\times\overline{n}}$,
+$\ell_r\in D^{1\times n}$, $\tilde{\ell}_g\in D^{1\times\overline{m}}$
+and $\ell_g\in D^{1\times m}$ defined as follows:
+\smallskip
+\begin{small}
+  \[\begin{tabular}{l l}
+  $\tilde{\ell}_r:=\g{c}e^n_kY_F^-\begin{pmatrix}
+  \id{q} & 0 & 0\\
+  0 & 0 & 0\\
+  0 & 0 & \id{l}
+  \end{pmatrix}+\begin{pmatrix} 0 & \g{d} & 0
+  \end{pmatrix}$, &
+  $\ell_r:=\tilde{\ell_r}\begin{pmatrix}
+    \id{q+\overline{p'}} & 0 & 0\\
+    0 & 0 & \id{l}
+  \end{pmatrix}$,\\
+  & \\
+  $\tilde{\ell}_g:=\g{c}e^m_pX_F^-\begin{pmatrix}
+  \id{p} & 0\\
+  0 & 0\end{pmatrix}+\begin{pmatrix}0 & \g{d}\end{pmatrix}$, &
+  $\ell_g:=\begin{pmatrix}\tilde{\ell}_g & 0\end{pmatrix}$.
+  \end{tabular}\]
+\end{small}
+\smallskip
+as well as the matrices $U_r\in D^{n\times n}$, $U_g\in D^{m\times m}$,
+$F_r\in D^{\overline{n}\times n}$ and $F_g\in D^{\overline{m}\times m}$
+defined as follows:
+\smallskip
+\begin{small}
+  \[\begin{tabular}{l l}
+  $U_r:=\begin{pmatrix}
+  \id{q} & 0 & 0 & 0\\
+  0 & \id{\overline{p'}} & \g{u}^T & 0\\
+  0 & 0 & 1 & 0\\
+  0 & 0 & 0 & \id{l}
+  \end{pmatrix}$, &
+  $F_r:=\begin{pmatrix}
+  \id{q+\overline{p'}} & 0 & 0\\
+  0 & 0 & \id{l}
+  \end{pmatrix}U_rY_F$,\\
+  & \\
+  $U_g:=\begin{pmatrix}
+  \id{p} & 0 & 0\\
+  0 & \id{\overline{p'}} & \g{u}^T\\
+  0 & 0 & 1\end{pmatrix}$,
+  &
+  $F_g:=\begin{pmatrix}\id{\overline{m}} & 0\end{pmatrix}U_gX_F$.
+  \end{tabular}\]
+\end{small}
+
+Explicitly, we have:
+\begin{small}
+  \[\begin{tabular}{l l}
+  $\tilde{\ell}_r=\begin{pmatrix}
+  \g{c}Z_{p.} & \g{d} & \g{c}e^{l}_p
+  \end{pmatrix}$
+  &
+  $\ell_r=\begin{pmatrix}
+  \g{c}Z_{p.} & \g{d} & 0 & \g{c}e^{l}_p
+  \end{pmatrix}$,\\
+  & \\
+  $\tilde{\ell}_g=\begin{pmatrix}
+  \g{c}\left(\id{p}-PP'\right)_{p.} & \g{d}
+  \end{pmatrix}$ &
+  $\ell_g=\begin{pmatrix}
+  \g{c}\left(\id{p}-PP'\right)_{p.} & \g{d} & 0
+  \end{pmatrix}$,
+  \end{tabular}\]
+\end{small}
+\smallskip
+where the index $p.$ denotes the $p$-th line of the considered matrix.
+
+As we did for Relation (\ref{equ:extend_Bezout_zero_part}), we obtain the
+following relations:
+\begin{small}
+  \begin{equation}\label{equ:extend_Bezout_id_rel_part}
+    1=\tilde{\ell}_rF_r(e^n_{k})^T=\ell_rU_rY_F(e^n_{k})^T,
+  \end{equation}
+\end{small}
+and
+\begin{small}
+  \begin{equation}\label{equ:extend_Bezout_id_gen_part}
+    1=\tilde{\ell}_gF_g(e^m_p)^T=\ell_gU_gX_F(e^m_p)^T.
+  \end{equation}
+\end{small}
+
+Let us consider $\p_r,\ \p'_r\in D^{n\times\overline{n}}$,
+$\p_g,\ \p'_g\in D^{m\times\overline{m}}$, $\iota_r,\ \iota'_r\in D^{
+  \overline{n}\times n}$ and $\iota_g,\ \iota'_g\in D^{\overline{m}\times
+  m}$ defined as follows:
+\begin{small}
+  \[\begin{split}
+  \p_r&:=\begin{pmatrix}
+  \id{q+\overline{p'}} & 0\\
+  0 & 0\\
+  0 & \id{l}
+  \end{pmatrix}\left(\id{\overline{n}}-F_r\left(e^n_{k}\right)^T
+  \tilde{\ell}_r\right)+(e^n_{k})^T\tilde{\ell_r},\\
+  \p'_r&:=\left(\id{n}-(e^{n}_{k})^T\ell_rU_rY_F\right)\begin{pmatrix}
+    \id{\overline{k}} & 0\\
+    0 & 0\\
+    0 & \id{q'}
+  \end{pmatrix}, \\
+  & \\
+  \iota_r&:=\left(\id{\overline{n}}-F_r\left(e^n_{k}\right)^T\tilde{
+    \ell}_r\right)
+  \begin{pmatrix}
+    \id{q+\overline{p'}} & 0 & 0\\
+    0 & 0 & \id{l}
+  \end{pmatrix}+F_r\left(e^n_{k}\right)^Te^n_{q+p'},\\
+  & \\
+  \iota'_r&:=\begin{pmatrix}
+  \id{\overline{k}} & 0 & 0\\
+  0 & 0 & \id{q'}
+  \end{pmatrix},\\
+  & \\
+  \p_g&:=\begin{pmatrix}
+  \id{\overline{m}}-F_g(e^m_p)^T\tilde{\ell}_g\\
+  \tilde{\ell}_g
+  \end{pmatrix},\\
+  \p'_g&:=\begin{pmatrix}
+  \id{m}-(e^m_p)^T\ell_gU_gX_F
+  \end{pmatrix}\begin{pmatrix}
+    \id{\overline{p}} & 0\\
+    0 & 0\\
+    0 & \id{p'}
+  \end{pmatrix},\\
+  & \\
+  \iota_g&:=\begin{pmatrix}
+  \id{\overline{m}}-F_g(e^m_{p})^T\tilde{\ell}_g & F_g(e^m_{p})^T
+  \end{pmatrix},\\
+  & \\
+  \iota'_g&:=\begin{pmatrix}
+  \id{\overline{p}} & 0 & 0\\
+  0 & 0 & \id{p'}
+  \end{pmatrix}.
+  \end{split}\]
+\end{small}
+
+By adapting the arguments of the proof of
+Proposition~\ref{prop:exact_sequences_zero_part}, we get the following.
+\medskip
+\begin{prop}\label{prop:exact_sequences_id_rel_part}
+  We have the following relations
+  \vspace{-0.4cm}
+  \setlength{\columnsep}{-1cm}
+  \begin{multicols}{2}
+    \begin{enumerate}
+    \item\label{it:split_pi_id_rel_part} $\iota_r\p_r=\id{\overline{n}}
+      $,
+    \item\label{it:split_pip_id_rel_part} ${\iota_r}'{\p_r}'=\id{
+      \overline{n}}$,
+    \item\label{it:split_pi_id_gen_part} $\iota_g\p_g=\id{\overline{m}}
+      $,
+    \item\label{it:split_pip_id_gen_part} ${\iota_g}'{\p_g}'=\id{
+      \overline{m}}$,
+    \item\label{it:ker_pi_id_rel_part} $\ker(.\p_r)=\emph{D}\ell_r$,
+    \item\label{it:ker_pip_id_rel_part} $\ker(.{\p_r}')=\emph{D}
+      \ell_rU_rY_F$,
+    \item\label{it:ker_pi_id_gen_part} $\ker(.\p_g)=\emph{D}\ell_g$,
+    \item\label{it:ker_pip_id_gen_part} $\ker(.{\p_g}')=D\ell_gU_gX_F$.
+    \end{enumerate}
+  \end{multicols}
+\end{prop}
+
+\bigskip
+
+\begin{thm}\label{thm:reduction_zero}
+  With the previous notations, we let
+  \medskip
+  \[\begin{tabular}{l l}
+  $Y_W:=\iota_r U_rY_F\p'_r$, & $X_W:=\iota_gU_gX_F\p'_g$,
+  \\
+  & \\
+  $Y_W^-:=\iota'_rY_F^-U_r^-\p_r$, &
+  $X_W^-:=\iota'_gU_gX_F^-\p_g$.
+  \end{tabular}\]
+  
+  The following diagram is exact and commutative:
+  \begin{center}
+    \begin{tikzcd}
+      D^{1\times\overline{n}}\arrow[r, ".\tilde{L}"] \arrow[d, ".Y_W"', shift right=1ex] &
+      D^{1\times\overline{m}}\arrow[r, "\pi\oplus 0"] \arrow[d, ".X_W"', shift right=1ex]&
+      M\arrow[r] \arrow[d, "f"', shift right=1ex]&
+      0
+      \\
+      D^{1\times\overline{n}}\arrow[r, ".\tilde{L'}"] \arrow[u, ".Y_W^-"', shift right=1ex]&
+      D^{1\times\overline{m}}\arrow[r, "0\oplus\pi'"] \arrow[u, ".X_W^-"', shift right=1ex]&
+      M'\arrow[r] \arrow[u, "f^-"', shift right=1ex]&
+      0
+    \end{tikzcd}
+  \end{center}
+  In particular, we have
+  \[\tilde{L'}=Y_W^-\tilde{L}X_W.\]
+\end{thm}
+
+\begin{pf}
+  We only have to show that the diagram is commutative.
+
+  We show that $Y_W$ and $Y_W^-$ (respectively, $X_W$ and $X_W^-$) are
+  inverse to each over in the same manner that we did in the proof of
+  Theorem~\ref{thm:reduction_id}.
+
+  Moreover, $Y_W\tilde{L}'=\tilde{L}X_W$ and $Y_W^-\tilde{L}=\tilde{L}'
+  X_W^-$ follow from the following commutative diagram:
+  \vspace{-0.4cm}
+  \begin{center}
+    \begin{small}
+    \[
+      \begin{tikzcd}
+        D^{1\times\overline{n}}\arrow[d, "\tilde{L}"']\arrow[r, "\iota_r", shift right=-0.5ex] &
+        D^{1\times n}\arrow[d, "L"]\arrow[r, "U_r", shift right=-0.5ex]
+        \arrow[l, "\p_r", shift left=0.5ex] &
+        D^{1\times n}\arrow[d, "L"]\arrow[r, "Y_F", shift right=-0.5ex] 
+        \arrow[l, "U_r^-", shift right=-0.5ex] &
+        D^{1\times n}\arrow[d, "L'"]\arrow[r, "\p'_r", shift right=-0.5ex] 
+        \arrow[l, "Y_F^-", shift right=-0.5ex] &
+        D^{1\times\overline{n}}\arrow[d, "\tilde{L}'"]
+        \arrow[l, "\iota_r'", shift right=-0.5ex] 
+        \\
+        D^{1\times\overline{m}}\arrow[r, "\iota_g", shift right=-0.5ex] &
+        D^{1\times m}\arrow[r, "U_g", shift right=-0.5ex]
+        \arrow[l, "\p_g", shift left=0.5ex] &
+        D^{1\times m}\arrow[r, "X_F", shift right=-0.5ex]
+        \arrow[l, "U_g^-", shift right=-0.5ex] &
+        D^{1\times m}\arrow[r, "\p'_g", shift right=-0.5ex]
+        \arrow[l, "X_F^-", shift right=-0.5ex] &
+        D^{1\times\overline{m}}
+        \arrow[l, "\iota_g'", shift right=-0.5ex] 
+      \end{tikzcd}
+      \]
+      \end{small}
+  \end{center}
+  Indeed by computing the matrix products and
+  from (\ref{equ:Fitting_eq}), we have the following relations, proven in
+  Section~\ref{sec:proofs_reduction_id_part}:
+  \begin{small}
+    \begin{equation}
+      \label{eq:formulas_reduction_id_part}
+      \begin{tabular}{l l l l}
+        $\iota_rL=\tilde{L}\iota_g,$ & $U_rL=LU_g,$ & $Y_FL'=LX_F$, &
+        $\p_r\tilde{L}=L\p_g$,\\
+        & & \\
+        $\iota_r'L'=\tilde{L}'\iota'_g,$ & $Y_F^-L=L'X_F^-,$ & $U_r^-L=LU_g^-$,
+        & $\p_r'\tilde{L}'=L'\p'_g$.
+      \end{tabular}
+    \end{equation}
+  \end{small}
+\end{pf}
+
+\section{Annex: proofs}\label{sec:annex}
+
+\subsection{Proof of Formulas~\eqref{eq:formulas_reduction_zero_part}}
+\label{sec:proofs_reduction_zero_part}
+
+We have to show the following relations
+\vspace{-0.4cm}
+\begin{small}
+  \setlength{\columnsep}{-0.2cm}
+  \begin{multicols}{3}
+    \begin{equation}\label{equ:eq1_zero_part}
+      \iota L=\tilde{L},
+    \end{equation}
+    
+    \begin{equation}\label{equ:eq2_zero_part}
+      UL=L,
+    \end{equation}
+    
+    \begin{equation}\label{equ:eq3_zero_part}
+      Y_FL'=LX_F,
+    \end{equation}
+    
+    \begin{equation}\label{equ:eq4_zero_part}
+      \p'\tilde{L}'=L',
+    \end{equation}
+    
+    \begin{equation}\label{equ:eq5_zero_part}
+      \iota'L'=\tilde{L}',
+    \end{equation}
+    
+    \begin{equation}\label{equ:eq6_zero_part}
+      Y_F^-L=L'X_F^-,
+    \end{equation}
+    
+    \begin{equation}\label{equ:eq7_zero_part}
+      U^-L=L,
+    \end{equation}
+    
+    \begin{equation}\label{equ:eq8_zero_part}
+      \p\tilde{L}=L.
+    \end{equation}
+  \end{multicols}
+\end{small}
+
+The two relations \eqref{equ:eq3_zero_part} and \eqref{equ:eq6_zero_part}
+come from~\cite{ClQu:11}, \eqref{equ:eq2_zero_part} and
+\eqref{equ:eq5_zero_part} are proven by direct computations,
+\eqref{equ:eq1_zero_part} and \eqref{equ:eq7_zero_part} are proven by
+direct computations using respectively the following two relations:
+\begin{small}
+  \[\ell L=0\ \ \text{and}\ \
+  U^-=\begin{pmatrix}
+  \id{q+p'} & 0 & 0 & 0\\
+  0 & \id{p} & 0 & -\g{u}^T\\
+  0 & 0 & \id{\overline{q'}} & -\g{v}^T\\
+  0 & 0 & 0 & 1
+  \end{pmatrix}.\]
+\end{small}
+
+In order to prove \eqref{equ:eq4_zero_part}, we first show $\p'\iota'L'=
+L'$: from~\ref{it:split_pip_zero_part} and~\ref{it:ker_pip_zero_part} of
+Proposition~\ref{prop:exact_sequences_zero_part}, $\im(\p'\iota'-\id{n})
+$ is included $D\ell UY_F$ and using \eqref{equ:eq2_zero_part},
+\eqref{equ:eq3_zero_part} and $\ell L=0$, we have $\ell UY_FL'=\ell LUX_F
+=0$, which proves the desired relation. Moreover, from
+\eqref{equ:eq5_zero_part}, we get $\p'\iota'L'=\p'\tilde{L}'$ which,
+with $\p'\iota'L'=L'$, gives \eqref{equ:eq4_zero_part}. We show
+\eqref{equ:eq8_zero_part} in the same manner using
+\eqref{equ:eq1_zero_part}.
+
+\subsection{Proof of Formulas~\eqref{eq:formulas_reduction_id_part}}
+\label{sec:proofs_reduction_id_part}
+
+We have to show the following relations
+\vspace{-0.4cm}
+\begin{small}
+  \begin{multicols}{3}
+    \begin{equation}\label{equ:eq1_id_part}
+      \iota_rL=\tilde{L}\iota_g,
+    \end{equation}
+    
+    \begin{equation}\label{equ:eq2_id_part}
+      U_rL=LU_g,
+    \end{equation}
+    
+    \begin{equation}\label{equ:eq3_id_part}
+      Y_FL'=LX_F,
+    \end{equation}
+    
+    \begin{equation}\label{equ:eq4_id_part}
+      \p'_r\tilde{L}'=L'\p'_g,
+    \end{equation}
+    
+    \begin{equation}\label{equ:eq5_id_part}
+      \iota'_rL'=\tilde{L}'\iota'_g,
+    \end{equation}
+    
+    \begin{equation}\label{equ:eq6_id_part}
+      Y_F^-L=L'X_F^-,
+    \end{equation}
+    
+    \begin{equation}\label{equ:eq7_id_part}
+      U_r^-L=LU_g^-, 
+    \end{equation}
+    
+    \begin{equation}\label{equ:eq8_id_part}
+      \p_r\tilde{L}=L\p_g.
+    \end{equation}
+  \end{multicols}
+\end{small}
+
+The two relations \eqref{equ:eq3_id_part} and \eqref{equ:eq6_id_part}
+come from~\cite{ClQu:11}, \eqref{equ:eq2_id_part} and
+\eqref{equ:eq5_id_part} are proven by direct computations,
+\eqref{equ:eq7_id_part} is computed by a direct computation using the
+inverse formulas for $U_g$ and $U_r$ which are analog to the inverse of
+$U$ given in Section~\ref{sec:proofs_reduction_zero_part}.
+
+Let us show \eqref{equ:eq1_id_part}. For that, we decompose $\iota_r$ and
+$\iota_g$ in $3$ parts, as follows:
+\begin{small}
+  \[
+  \begin{tabular}{l l}
+    $\iota_r^1:= \begin{pmatrix}
+      \id{q+\overline{p'}} & 0 & 0\\
+      0 & 0 & \id{l}
+    \end{pmatrix},$ & $\iota_g^1:= \begin{pmatrix}
+      \id{\overline{m}} & 0
+    \end{pmatrix},$
+     \\
+    & \\
+    $\iota_r^2:= F_r(e^n_{k})^T\tilde{\ell}_r\begin{pmatrix}
+    \id{q+\overline{p'}} & 0 & 0\\
+    0 & 0 & \id{l}
+     \end{pmatrix},$ &
+     $\iota_g^2:= F_g(e^m_p)^T\ell_g,$
+      \\
+    & \\
+    $\iota_r^3:= F_r(e^n_{k})^Te^n_{q+p'},$ &
+    $\iota_g^3:= F_g(e^m_p)^Te^m_{p+p'},$
+  \end{tabular}
+  \]
+\end{small}
+so that we have $\iota_r=\iota_r^1-\iota_r^2+\iota_r^3$ and $\iota_g=
+\iota_g^1-\iota_g^2+\iota_g^3$. By computing the matrix products, we show
+that $\iota_r^1L=\tilde{L}\iota_g^1$, that the first $\overline{m}$
+columns of $\iota_r^2L$ and $\tilde{L}\iota_g^2$ are both equal to $0$
+and their $m$-th column are both equal to
+\begin{small}
+  \[\begin{pmatrix}
+  R_{.p}\\
+  -\left(P'_{ip}+u_iP'_{p'p}\right)_{1\leq i\leq\overline{p'}}\\
+  0\\
+  0
+  \end{pmatrix}.\]
+\end{small}
+Finally, by computing the matrix products, we show that $\iota_r^3L$ and
+$\tilde{L}\iota_g^3$ are respectively equal to
+\begin{small}
+  \[\begin{split}
+  &\begin{pmatrix}
+  R_{.p}\\
+  \left({\id{p'}}_{ip'}-P'P_{ip'}\right)_{1\leq i\leq p'}\\
+  0\\
+  0
+  \end{pmatrix}\begin{pmatrix}
+    \g{c}\left(ZR\right)_{p.} & \g{d} & 0
+  \end{pmatrix}\ \ \text{and}\\
+  & \\
+  &\begin{pmatrix}
+    R_{.p}\\
+    \left({\id{p'}}_{ip'}-P'P_{ip'}\right)_{1\leq i\leq p'}\\
+    0\\
+    0
+  \end{pmatrix}\begin{pmatrix}
+    \g{c}\left(\id{p}-PP'\right)_{p.} & \g{d} & 0
+  \end{pmatrix}
+  \end{split}\]
+\end{small}
+so that they are equal from the relation $\id{p}=PP'+ZR$, which proves
+\eqref{equ:eq1_id_part}.
+
+Let us show \eqref{equ:eq4_id_part}. By using Relation
+\eqref{equ:eq5_id_part}, and~\ref{it:split_pi_id_rel_part} of
+Proposition~\ref{prop:exact_sequences_id_rel_part}, we have $\p'_r
+\iota'_rL'\p'_g=\p'_r\tilde{L}'$. We proceed as in the proof of
+\eqref{equ:eq4_zero_part}: we only have to show that $\im(\p'_r\iota'_r
+  -\id{n})L'$ is included in $\ker\left(\p'_g\right)$. We have $\im(
+  \p'_r\iota'_r-\id{n})\subseteq D\ell_rU_rY_F$, $\ell_rU_rY_FL'=\ell_r
+LU_gX_F$ and $\ell_rL=\ell_g$, so that $\ell_rU_rY_FL'=\ell_gU_gX_F\in
+\ker(\p'_g)$. With the same arguments, we show \eqref{equ:eq4_id_part}.
 
 \bibliography{Source}
 
 \end{document}
 
-  

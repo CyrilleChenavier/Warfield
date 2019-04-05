@@ -1,4 +1,4 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{5}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
@@ -21,6 +21,13 @@ Fitting, H. (1936).
   {G}leichartigkeit zweier {I}deale und dem \"{A}quivalenzbegriff der
   {E}lementarteilertheorie.
 \newblock \emph{Math. Ann.}, 112(1), 572--582.
+
+\bibitem[{McConnell and Robson(2001)}]{MCRo:01}
+McConnell, J.C. and Robson, J.C. (2001).
+\newblock \emph{Noncommutative {N}oetherian rings}, volume~30 of \emph{Graduate
+  Studies in Mathematics}.
+\newblock American Mathematical Society, Providence, RI, revised edition.
+\newblock With the cooperation of L. W. Small.
 
 \bibitem[{Rotman(2009)}]{Ro:09}
 Rotman, J.J. (2009).

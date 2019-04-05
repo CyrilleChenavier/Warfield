@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.11.24)  4 APR 2019 16:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.11.24)  5 APR 2019 10:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -565,18 +565,18 @@ Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
 (./Source.aux)
 \openout1 = `Source.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -648,18 +648,18 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 26.
-LaTeX Font Info:    Try loading font information for U+msa on input line 26.
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 28.
+LaTeX Font Info:    Try loading font information for U+msa on input line 28.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 26.
+LaTeX Font Info:    Try loading font information for U+msb on input line 28.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 26.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 28.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
@@ -667,22 +667,22 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 \c@sv@footnote=\count154
 
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 109.
+LaTeX Font Warning: Command \small invalid in math mode on input line 111.
 
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 135.
+LaTeX Font Warning: Command \small invalid in math mode on input line 137.
 
 
-Overfull \hbox (23.46034pt too wide) detected at line 147
+Overfull \hbox (23.46034pt too wide) detected at line 149
 \OML/cmm/m/it/10 X[] \OT1/cmr/m/n/10 := []   []  \OML/cmm/m/it/10 Y[] \OT1/cmr/
 m/n/10 := [] \OML/cmm/m/it/10 ;
  []
 
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 152.
+LaTeX Font Warning: Command \small invalid in math mode on input line 154.
 
 
-Overfull \hbox (21.87395pt too wide) detected at line 164
+Overfull \hbox (21.87395pt too wide) detected at line 166
 \OML/cmm/m/it/10 X[] \OT1/cmr/m/n/10 := []   []  \OML/cmm/m/it/10 Y[] \OT1/cmr/
 m/n/10 := [] \OML/cmm/m/it/10 ;
  []
@@ -692,22 +692,33 @@ m/n/10 := [] \OML/cmm/m/it/10 ;
 ]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 219.
+(amsmath)                trying to recover with `aligned' on input line 221.
 
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 226.
+LaTeX Font Warning: Command \small invalid in math mode on input line 228.
 
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 287.
+LaTeX Font Warning: Command \small invalid in math mode on input line 289.
 
 [2]
-Overfull \hbox (8.52129pt too wide) detected at line 579
+Overfull \hbox (10.6072pt too wide) detected at line 624
+[] [] \OML/cmm/m/it/8 Y[]\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 e[]\OT1/cmr/m/n/8 )[] 
+= 1\OML/cmm/m/it/8 ;
+ []
+
+[3]
+Overfull \hbox (7.7447pt too wide) detected at line 692
 []
  []
 
 
-LaTeX Warning: Reference `sec:proofs_reduction_zero_part' on page 3 undefined o
-n input line 580.
+Overfull \hbox (3.69058pt too wide) detected at line 917
+[]
+ []
+
+[4]
+Underfull \vbox (badness 4543) has occurred while \output is active []
+
 
 (./Source.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 11--17
@@ -730,42 +741,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--17
 \OT1/cmr/m/it/10 Sys-tems (nDs)\OT1/cmr/m/n/10 , 1--8. Poitiers, France.  URL
  []
 
-) [3] (./Source.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+) [5] (./Source.aux) ) 
 Here is how much of TeX's memory you used:
- 14695 strings out of 492982
- 296502 string characters out of 6134895
- 375572 words of memory out of 5000000
- 17967 multiletter control sequences out of 15000+600000
+ 14888 strings out of 492982
+ 301206 string characters out of 6134895
+ 404389 words of memory out of 5000000
+ 18160 multiletter control sequences out of 15000+600000
  15423 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,23n,82p,407b,1030s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmtt10.pfb>
-Output written on Source.pdf (3 pages, 247994 bytes).
+ 56i,25n,82p,407b,1026s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on Source.pdf (5 pages, 278857 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
- 71 compressed objects within 1 object stream
+ 107 PDF objects out of 1000 (max. 8388607)
+ 78 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
