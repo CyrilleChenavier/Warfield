@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.11.24)  5 APR 2019 10:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.11.24)  5 APR 2019 10:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -716,11 +716,7 @@ Overfull \hbox (3.69058pt too wide) detected at line 917
 []
  []
 
-[4]
-Underfull \vbox (badness 4543) has occurred while \output is active []
-
-
-(./Source.bbl
+[4] (./Source.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 11--17
 \OT1/cmr/m/n/10 ver-sion of Fit-ting's the-o-rem on iso-mor-phisms
  []
@@ -770,7 +766,7 @@ ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Source.pdf (5 pages, 278857 bytes).
+Output written on Source.pdf (5 pages, 278841 bytes).
 PDF statistics:
  107 PDF objects out of 1000 (max. 8388607)
  78 compressed objects within 1 object stream
